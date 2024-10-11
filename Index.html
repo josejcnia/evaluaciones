@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSTRUMENTOS EVALUATIVOS PARA PROCESOS DE PRÁCTICAS</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0066cc, #004080);
+            color: white;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .menu li {
+            position: relative;
+        }
+        .menu a {
+            display: block;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+        }
+        .submenu {
+            display: none;
+            list-style-type: none;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .submenu li {
+            margin-top: 5px;
+        }
+        .submenu a {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+        }
+        .preview {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 10;
+            width: 300px;
+            max-width: 90vw;
+        }
+        .menu li:hover .preview {
+            display: block;
+        }
+        .instrument-content {
+            display: none;
+            background-color: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>INSTRUMENTOS EVALUATIVOS PARA PROCESOS DE PRÁCTICAS</h1>
+        <ul class="menu">
+            <li>
+                <a href="#" onclick="toggleInstrument('tns-fiti')">1. Pauta de validación de los instrumentos de práctica TNS FITI</a>
+                <div class="preview">
+                    <h3>Vista previa: TNS FITI</h3>
+                    <p>Este instrumento evalúa aspectos clave de las prácticas en Tecnología en Informática...</p>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleSubmenu('kinesiologia')">2. Pauta validación de los instrumentos de prácticas Kinesiología</a>
+                <ul class="submenu" id="kinesiologia">
+                    <li><a href="#" onclick="toggleInstrument('kinesiologia-1')">Pauta 1</a></li>
+                    <li><a href="#" onclick="toggleInstrument('kinesiologia-2')">Pauta 2</a></li>
+                    <li><a href="#" onclick="toggleInstrument('kinesiologia-3')">Pauta 3</a></li>
+                </ul>
+                <div class="preview">
+                    <h3>Vista previa: Kinesiología</h3>
+                    <p>Esta pauta incluye tres instrumentos para evaluar diferentes aspectos de las prácticas en Kinesiología...</p>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleInstrument('terapia-ocupacional')">3. Pauta validación de los instrumentos de práctica Terapia Ocupacional</a>
+                <div class="preview">
+                    <h3>Vista previa: Terapia Ocupacional</h3>
+                    <p>Este instrumento evalúa las competencias adquiridas durante las prácticas en Terapia Ocupacional...</p>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleSubmenu('enfermeria')">4. Pauta validación de los instrumentos de prácticas para enfermería y TNS en enfermería</a>
+                <ul class="submenu" id="enfermeria">
+                    <li><a href="#" onclick="toggleInstrument('enfermeria-1')">Pauta 1</a></li>
+                    <li><a href="#" onclick="toggleInstrument('enfermeria-2')">Pauta 2</a></li>
+                </ul>
+                <div class="preview">
+                    <h3>Vista previa: Enfermería</h3>
+                    <p>Esta pauta consta de dos instrumentos para evaluar las prácticas en Enfermería y TNS en Enfermería...</p>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleInstrument('psicologia')">5. Pauta validación de instrumentos de prácticas de Psicología</a>
+                <div class="preview">
+                    <h3>Vista previa: Psicología</h3>
+                    <p>Este instrumento evalúa las habilidades y conocimientos aplicados durante las prácticas en Psicología...</p>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleInstrument('derecho')">6. Pauta de validación de instrumentos de prácticas de derecho</a>
+                <div class="preview">
+                    <h3>Vista previa: Derecho</h3>
+                    <p>Esta pauta evalúa las competencias legales y éticas adquiridas durante las prácticas en Derecho...</p>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Instrument Content Placeholders -->
+        <div id="tns-fiti" class="instrument-content">
+            <!-- Insert TNS FITI instrument HTML here -->
+            <h2>Pauta de validación de los instrumentos de práctica TNS FITI</h2>
+            <!-- Add your specific HTML content for this instrument -->
+        </div>
+
+        <div id="kinesiologia-1" class="instrument-content">
+            <!-- Insert Kinesiología Pauta 1 HTML here -->
+            <h2>Pauta validación de los instrumentos de prácticas Kinesiología - Pauta 1</h2>
+            <!-- Add your specific HTML content for this instrument -->
+        </div>
+
+        <div id="kinesiologia-2" class="instrument-content">
+            <!-- Insert Kinesiología Pauta 2 HTML here -->
+            <h2>Pauta validación de los instrumentos de prácticas Kinesiología - Pauta 2</h2>
+            <!-- Add your specific HTML content for this instrument -->
+        </div>
+
+        <div id="kinesiologia-3" class="instrument-content">
+            <!-- Insert Kinesiología Pauta 3 HTML here -->
+            <h2>Pauta validación de los instrumentos de prácticas Kinesiología - Pauta 3</h2>
+            <!-- Add your specific HTML content for this instrument -->
+        </div>
+
+        <div id="terapia-ocupacional" class="instrument-content">
+            <!-- Insert Terapia Ocupacional instrument HTML here -->
+            <h2>Pauta validación de los instrumentos de práctica Terapia Ocupacional</h2>
+            <!-- Add your specific HTML content for this instrument -->
+        </div>
+
+        <div id="enfermeria-1" class="instrument-content">
+            <!-- Insert Enfermería Pauta 1 HTML here -->
+            <h2>Pauta validación de los instrumentos de prácticas para enfermería y TNS en enfermería - Pauta 1</h2>
+            <!-- Add your specific HTML content for this instrument -->
+        </div>
+
+        <div id="enfermeria-2" class="instrument-content">
+            <!-- Insert Enfermería Pauta 2 HTML here -->
+            <h2>Pauta validación de los instrumentos de prácticas para enfermería y TNS en enfermería - Pauta 2</h2>
+            <!-- Add your specific HTML content for this instrument -->
+        </div>
+
+        <div id="psicologia" class="instrument-content">
+            <!-- Insert Psicología instrument HTML here -->
+            <h2>Pauta validación de instrumentos de prácticas de Psicología</h2>
+            <!-- Add your specific HTML content for this instrument -->
+        </div>
+
+        <div id="derecho" class="instrument-content">
+            <!-- Insert Derecho instrument HTML here -->
+            <h2>Pauta de validación de instrumentos de prácticas de derecho</h2>
+            <!-- Add your specific HTML content for this instrument -->
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(id) {
+            var submenu = document.getElementById(id);
+            if (submenu) {
+                if (submenu.style.display === "block") {
+                    submenu.style.display = "none";
+                } else {
+                    submenu.style.display = "block";
+                }
+            }
+        }
+
+        function toggleInstrument(id) {
+            var instruments = document.getElementsByClassName('instrument-content');
+            for (var i = 0; i < instruments.length; i++) {
+                instruments[i].style.display = 'none';
+            }
+            var instrument = document.getElementById(id);
+            if (instrument) {
+                instrument.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
